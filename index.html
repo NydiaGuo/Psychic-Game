@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>The Psychic Game</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+  </head>
+  <body>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="jumbotron">
+          	<h2><strong>The Psychic Game</strong></h2>
+            <h3>Guess what letter the computer thinking of</h3>
+            <h3>Wins: <span id="wins"></span></h3>
+            <h3>Losses: <span id="lossesInput"></span></h3>
+            <h3>Guesses Left: <span id="guessesLeft"></span></h3>
+            <h3>Your Guesses so far: <span id="user-input"></span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- We have to put this at the end of our document to ensure the user-text
+         span exists when we try to access it. -->
+    <script type="text/javascript">
+    	var wins = 0;
+    	var losses = 0;
+    	var leftGuesses = 9;
+    	var array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    	var userInput;
+    	var compPick;
+    	var userPress=[];
+
+
+    	var reset = function() {
+	  		leftGuesses = 9;
+	  		userPress = [];
+  		}
+  	
+
+      // Let's start by grabbing a reference to the <span> below.
+	    var userInputSpan = document.getElementById("user-input");
+	   
+	   //computer will puck a random letter   
+	    compPick = array[Math.floor(Math.random() * array.length)];
+	      
+      // To give JavaScript a function to execute when onkeyup event fires.
+    document.onkeyup = function(letters) {
+	      userInput = letters.key;
+	      userPress.push(userInput);
+
+	      console.log("This is user's input =" + userInput);
+	      console.log("This is user's press=" + userPress);
+	      console.log("The computer picked =" + compPick);
+
+	      userInputSpan.textContent = userPress;
+	      
+	    if (leftGuesses > 0) {
+	      	if (userInput == compPick) {
+			    wins++;
+			   	document.getElementById("wins").textContent = wins;
+			   	console.log(wins);
+			   	reset();
+	        }
+	        else {
+		       	leftGuesses--;
+		       	document.getElementById("guessesLeft").textContent = leftGuesses;
+	        }
+
+      	}
+		else if(leftGuesses === 0) {
+			losses++;
+		   	document.getElementById("lossesInput").textContent = losses;
+			reset();
+  		}
+  	
+		}
+
+
+    </script>
+  </body>
+</html>
