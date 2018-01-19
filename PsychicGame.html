@@ -34,11 +34,12 @@
     	var userInput;
     	var compPick;
     	var userPress=[];
-
-
+ 
     	var reset = function() {
+    		compPick = array[Math.floor(Math.random() * array.length)];
 	  		leftGuesses = 9;
 	  		userPress = [];
+	  	
   		}
   	
 
@@ -54,13 +55,18 @@
 	      userPress.push(userInput);
 
 	      console.log("This is user's input =" + userInput);
-	      console.log("This is user's press=" + userPress);
+	      console.log("This is user's press =" + userPress);
 	      console.log("The computer picked =" + compPick);
 
 	      userInputSpan.textContent = userPress;
 	      
 	    if (leftGuesses > 0) {
-	      	if (userInput == compPick) {
+
+	    	for (var i=0; i < array.length; i++) {
+	    		userInput == array[i];
+	    	}	
+
+	      	if (userInput === compPick) {
 			    wins++;
 			   	document.getElementById("wins").textContent = wins;
 			   	console.log(wins);
@@ -69,6 +75,7 @@
 	        else {
 		       	leftGuesses--;
 		       	document.getElementById("guessesLeft").textContent = leftGuesses;
+		       	array.splice(array.indexOf(userInput),1);
 	        }
 
       	}
