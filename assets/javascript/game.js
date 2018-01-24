@@ -1,42 +1,37 @@
-    	var wins = 0;
-    	var losses = 0;
-    	var leftGuesses = 9;
-    	var array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    	var userInput;
-    	var compPick;
-    	var userPress=[];
- 
-    	var reset = function() {
-    		compPick = array[Math.floor(Math.random() * array.length)];
-	  		leftGuesses = 9;
-	  		userPress = [];
-	  	
-  		}
+
+var wins = 0;
+var losses = 0;
+var leftGuesses = 9;
+var array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var userInput;
+var compPick;
+var userPress=[];
+
+//reset the game after the user losses or wins
+var reset = function() {
+	compPick = array[Math.floor(Math.random() * array.length)];
+  		leftGuesses = 9;
+  		userPress = [];
   	
+		}
   	
-      // Let's start by grabbing a reference to the <span> below.
-	    var userInputSpan = document.getElementById("user-input");
-	   
-	   //computer will puck a random letter   
-	    compPick = array[Math.floor(Math.random() * array.length)];
-	      
-      // To give JavaScript a function to execute when onkeyup event fires.
+  // Let's start by grabbing a reference to the <span> below.
+    var userInputSpan = document.getElementById("user-input");
+   
+   //computer will puck a random letter   
+    compPick = array[Math.floor(Math.random() * array.length)];
+      
+  // To give JavaScript a function to execute when onkeyup event fires.
     document.onkeyup = function(letters) {
-	      userInput = letters.key;
-	      userPress.push(userInput);
+      	userInput = letters.key;
+      	userPress.push(userInput);
 
-	      console.log("This is user's input =" + userInput);
-	      console.log("This is user's press =" + userPress);
-	      console.log("The computer picked =" + compPick);
-
-	      userInputSpan.textContent = userPress;
-	      
+      	userInputSpan.textContent = userPress;
+      
 	    if (leftGuesses > 0) {
-
 	    	for (var i=0; i < array.length; i++) {
 	    		userInput == array[i];
 	    	}	
-
 	      	if (userInput == compPick) {
 			    wins++;
 			   	document.getElementById("wins").textContent = wins;
@@ -48,12 +43,11 @@
 		       	document.getElementById("guessesLeft").textContent = leftGuesses;
 		       //	array.splice(array.indexOf(userInput),1);
 	        }
-          
-      	}
+	  	}
 	    else if(leftGuesses == 0) {
-  			losses++;
-  		  document.getElementById("lossesInput").textContent = losses;
-  			reset();
-    	}
-  	
+			losses++;
+		  	document.getElementById("lossesInput").textContent = losses;
+			reset();
 		}
+	
+	}
