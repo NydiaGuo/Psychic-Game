@@ -12,14 +12,38 @@
     <div class="container">
       <div class="row">
         <div class="col-md-offset-2 col-md-8">
-          <div class="jumbotron">
-          	<h2><strong>The Psychic Game</strong></h2>
+          <!-- <div class="jumbotron"> -->
+            <!-- <img src="./assets/images/letter.jpg" class="img-fluid" alt="find-the-letter-background" width="650"> -->
+            <h2><strong>The Psychic Game</strong></h2>
             <h3>Guess what letter the computer thinking of</h3>
+            <p>Note: Each time you have 9 guesses, your <strong>Wins</strong> will add 1 point each time once you get the right letter the computer "think of", otherwise your <strong>Losses</strong> will add 1 point.</p>
             <h3>Wins: <span id="wins"></span></h3>
             <h3>Losses: <span id="lossesInput"></span></h3>
             <h3>Guesses Left: <span id="guessesLeft"></span></h3>
             <h3>Your Guesses so far: <span id="user-input"></span></h3>
-          </div>
+          
+            <div class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Hi! There!</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <!-- need to add a moji at the end -->
+                      <p>It was not a letter! You punk</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+          <!-- </div> -->
         </div>
       </div>
     </div>
