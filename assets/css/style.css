@@ -1,0 +1,15 @@
+html, body {
+    height: 100%;
+    background-image: url("../images/backgound.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.container {
+    color: white;
+    font-family: 'Jua', sans-serif;
+}
+
+p {
+    font-size: 18px;
+}

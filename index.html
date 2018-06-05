@@ -4,45 +4,35 @@
     <meta charset="UTF-8">
     <title>The Psychic Game</title>
 
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="javascript/d3.v5.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css"></script>
+    <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
   </head>
-  <body>
+
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-offset-2 col-md-8">
+        <div class="col-md-offset-2 col-md-8" id="background">
           <!-- <div class="jumbotron"> -->
             <!-- <img src="./assets/images/letter.jpg" class="img-fluid" alt="find-the-letter-background" width="650"> -->
-            <h2><strong>The Psychic Game</strong></h2>
-            <h3>Guess what letter the computer thinking of</h3>
-            <p>Note: Each time you have 9 guesses, your <strong>Wins</strong> will add 1 point each time once you get the right letter the computer "think of", otherwise your <strong>Losses</strong> will add 1 point.</p>
-            <h3>Wins: <span id="wins"></span></h3>
-            <h3>Losses: <span id="lossesInput"></span></h3>
-            <h3>Guesses Left: <span id="guessesLeft"></span></h3>
-            <h3>Your Guesses so far: <span id="user-input"></span></h3>
-          
-            <div class="modal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Hi! There!</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <!-- need to add a moji at the end -->
-                      <p>It was not a letter! You punk</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
+            <!-- <h2><strong>The Psychic Game</strong></h2> -->
+            <div class="container">
+              <svg style="width: 900px; height: 250px;">
+               <g transform="translate(10, 10)"></g>
+             </svg>
+            </div>
+            <!-- <h3>Guess what letter the computer thinking of</h3> -->
+            <h4>Please press any letters to start the game! Good luck and have fun!</h4>
+            <p>Note: Each time you have 9 guesses, your <strong>Wins</strong> will add 1 point once you get the right letter the computer "think of", otherwise your <strong>Losses</strong> will add 1 point.</p>
+            <h2>Wins: <span id="wins"></span></h2>
+            <h2>Losses: <span id="lossesInput"></span></h2>
+            <h2>Guesses Left: <span id="guessesLeft"></span></h2>
+            <h2>Your Guesses so far: <span id="user-input"></span></h2>
+            <!-- <button type="button" class="btn btn-danger" id="restart" onclick="reset()">Restart</button> -->
           <!-- </div> -->
         </div>
       </div>
@@ -51,6 +41,7 @@
     <!-- We have to put this at the end of our document to ensure the user-text
          span exists when we try to access it. -->
     <script type="text/javascript" src="assets/javascript/game.js"></script>
+    <script type="text/javascript" src="assets/javascript/d3.js"></script>
 
   </body>
 </html>
